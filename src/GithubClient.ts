@@ -1,9 +1,23 @@
-import Validate from './Decorators/Validate'
+import TokenValidator from './Decorators/TokenValidator'
+import fetcher from './Utils/fetcher'
 export class GithubClient {
-    @Validate()
+    BASE_URL = 'https://api.github.com/graphql'
+
+    @TokenValidator()
     token: string
 
     constructor(token: string) {
         this.token = token
+    }
+
+    private __fetch = async <R>(query: string, variables: { [key: string]: string }): Promise<R> => {
+        const data = JSON.stringify({
+            query,
+            variables
+        })
+        const method = fetcher('post')
+        return await method<R>(this.BASE_URL, data, {
+            Authorization: `Bearer ${this.token}`
+        })
     }
 }
