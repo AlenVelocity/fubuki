@@ -1,30 +1,39 @@
-export default (): string => `fragment RepoInfo on Repository {
-        name
-        nameWithOwner
-        isPrivate
-        isArchived
-        isTemplate
-        stargazers {
-            totalCount
-        }
+export default (): string => `query {
+    repositoryOwner (login: $login) {
+      repositories {
+        totalCount
+      }
+      repository(name: $repository) {
         description
-        primaryLanguage {
-            color
-            id
-            name
+        forks {
+          totalCount
         }
-        forkCount
-    }
-query getRepo($login: String!, $repo: String!) {
-    user(login: $login) {
-        repository(name: $repo) {
-        ...RepoInfo
+        issues {
+          totalCount
         }
-    }
-    organization(login: $login) {
-        repository(name: $repo) {
-        ...RepoInfo
+        stargazers {
+          totalCount
         }
+        watchers {
+          totalCount
+        }
+        pullRequests {
+          totalCount
+        }
+        labels(first:10) {
+          edges {
+            node {
+              name
+            }
+          }
+        }
+        milestones(first:10) {
+          edges {
+            node {
+              title
+            }
+          }
+        }
+      }
     }
-}
-`
+  }`
