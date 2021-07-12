@@ -15,9 +15,9 @@ export const Validate = () => {
         target: GithubClient,
         propertyName: 'userStats',
         descriptor: TypedPropertyDescriptor<typeof target[typeof propertyName]>
-    ): ReturnType<typeof target[typeof propertyName]> => {
+    ): void => {
         const method = descriptor.value
-        descriptor.value = function (...args: Parameters<typeof target[typeof propertyName]>) {
+        descriptor.value = async function (...args: Parameters<typeof target[typeof propertyName]>) {
             const requiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyName)
             if (requiredParameters) {
                 for (const parameterIndex of requiredParameters) {
@@ -25,7 +25,7 @@ export const Validate = () => {
                         throw new Error('Missing required argument.')
                 }
             }
-            return method?.(...(args as Parameters<typeof target[typeof propertyName]>))
+            return method?.apply(this, args) as ReturnType<typeof target[typeof propertyName]>
         }
     }
 }
