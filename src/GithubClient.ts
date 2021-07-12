@@ -1,8 +1,12 @@
-import { Required } from './Decorators/ParameterValidator'
+import { Required, Validate } from './Decorators/ParameterValidator'
 import TokenValidator from './Decorators/TokenValidator'
+import User, { IUserStats } from './query/User'
 import fetcher from './Utils/fetcher'
-export class GithubClient {
 
+export interface GithubStats<IStats> {
+    data: IStats
+}
+export class GithubClient {
     BASE_URL = 'https://api.github.com/graphql'
 
     @TokenValidator()
@@ -22,4 +26,11 @@ export class GithubClient {
             Authorization: `Bearer ${this.token}`
         })
     }
+
+    @Validate()
+    async userStats(@Required() username: string): Promise<IUserStats> {
+        return (await this.__fetch<GithubStats<{ user: IUserStats }>>(User(), { login: username })).data.user
+    }
 }
+
+//convert stats to an interface
