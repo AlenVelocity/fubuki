@@ -1,4 +1,4 @@
-import { GithubClient } from '../Github'
+import { GithubClient } from '../GithubClient'
 
 const Validate = () => {
     return (target: GithubClient, key: keyof GithubClient): void => {
