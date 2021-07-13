@@ -4,9 +4,9 @@
   "description": "Github GQL API Wraper",
   "main": "dist/index.js",
   "files": [
-    "dist/fubuki"
+    "dist"
   ],
-  "types": "dist/fubuki",
+  "types": "dist",
   "scripts": {
     "build": "tsc -p .",
     "docs": "typedoc",
