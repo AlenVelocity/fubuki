@@ -32,7 +32,7 @@ console.log(data) /* {
     login: 'alensaito1'
     pullRequests: {
         totalCount: 1400
-    }...
+    }...*/
 ```
 ### Get a Repository 
 ```js
@@ -45,7 +45,7 @@ console.log(data) /* {
     description: 'Github GQL API Client'
     forks: {
          totalCount: 0
-    }...
+    }...*/
 ```
 
 ### Get the contributions calender of a user
@@ -61,5 +61,6 @@ console.log(data) /*{
             date: '2021-07-13'
         }...]
     }...]
-}
+}*/
+```
 
