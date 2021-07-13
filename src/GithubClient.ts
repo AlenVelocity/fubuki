@@ -1,5 +1,6 @@
 import { Required, Validate } from './Decorators/ParameterValidator'
 import TokenValidator from './Decorators/TokenValidator'
+import Repository from './query/Repository'
 import User, { IUserStats } from './query/User'
 import fetcher from './Utils/fetcher'
 
@@ -32,5 +33,3 @@ export class GithubClient {
         return (await this.__fetch<GithubStats<{ user: IUserStats }>>(User(), { login: username })).data.user
     }
 }
-
-//convert stats to an interface
