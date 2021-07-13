@@ -4,14 +4,15 @@
 ## Github GraphQL API Client
 -------------------------------
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) 
-![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) ![NodeJs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+[![Fubuki](https://nodei.co/npm/fubuki.png)](https://www.npmjs.com/package/fubuki)
 
 ### This package refers the following:
 ### - [Github GraphQL API](https://developer.github.com/v4/)
-### - [GraphQL Schema](https://github.com/graphql/graphql-js/blob/master/src/__tests__/schema/schema.js)
-
 -------------------------
+
+## Generate Your Acess Token [Here](https://github.com/settings/tokens)
+
 ## Install
 ```
 npm install --save fubuki
