@@ -23,9 +23,10 @@ export class GithubClient {
     token: string
 
     /**
-     * @param {string} token - github acess token
+     * @param {string} token - github acess token | [Generate Here](https://github.com/settings/tokens)
      */
     constructor(@Required() token: string) {
+        if (!token) throw new Error('No acess token provided')
         this.token = token
     }
 

@@ -11,7 +11,7 @@
 ### - [Github GraphQL API](https://developer.github.com/v4/)
 -------------------------
 
-## Generate Your Acess Token [Here](https://github.com/settings/tokens)
+### Generate Github Acess Token [Here](https://github.com/settings/tokens)
 
 ## Install
 ```
