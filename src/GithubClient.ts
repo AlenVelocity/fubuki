@@ -9,12 +9,22 @@ export interface GithubStats<IStats> {
     data: IStats
 }
 
+/*
+ * Github Client
+ */
 export class GithubClient {
     BASE_URL = 'https://api.github.com/graphql'
 
     @TokenValidator()
+    /**
+     * Github acess token
+     * @type {string}
+     */
     token: string
 
+    /**
+     * @param {string} token - github acess token
+     */
     constructor(@Required() token: string) {
         this.token = token
     }
@@ -30,6 +40,11 @@ export class GithubClient {
         })
     }
 
+    /**
+     * Fetches the user's github stats
+     * @param {string} username - username of the user
+     * @returns {Promise<IUserStats>} - User stats
+     */
     @Validate()
     async getUser(@Required() username: string): Promise<IUserStats> {
         const result = await this.__fetch<GithubStats<{ user: IUserStats }>>(User(), { login: username })
@@ -37,6 +52,11 @@ export class GithubClient {
         return result.data.user
     }
 
+    /**
+     * Fecthes repositories
+     * @param {Object<{ owner: string, repository: string }>} - Object containing owner and repository
+     * @returns {Promise<IRepository>} - Repository stats
+     */
     @Validate()
     async getRepository(
         @Required() { owner, repository }: { owner: string; repository: string }
@@ -46,6 +66,11 @@ export class GithubClient {
         return result.data.repository
     }
 
+    /**
+     * Fetches users' contributions calender
+     * @param {string}username - username o the user
+     * @returns {Promise<IContributionsCalender>} - Contributions Calender
+     */
     @Validate()
     async getContributionsCalender(@Required() username: string): Promise<IContributionsCalender> {
         const result = await this.__fetch<
