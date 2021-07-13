@@ -1,6 +1,6 @@
 {
   "name": "fubuki",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Github GQL API Wraper",
   "main": "dist/index.js",
   "files": [
