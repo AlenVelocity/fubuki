@@ -1,5 +1,6 @@
 import { Required, Validate } from './Decorators/ParameterValidator'
 import TokenValidator from './Decorators/TokenValidator'
+import Contributions, { IContributionsCalender } from './query/ContributionCalender'
 import Repository, { IRepository } from './query/Repository'
 import User, { IUserStats } from './query/User'
 import fetcher from './Utils/fetcher'
@@ -43,5 +44,14 @@ export class GithubClient {
         const result = await this.__fetch<GithubStats<{ repository: IRepository }>>(Repository(), { owner, repository })
         if (!result.data.repository) throw new Error(`No valid repository found`)
         return result.data.repository
+    }
+
+    @Validate()
+    async getContributionsCalender(@Required() username: string): Promise<IContributionsCalender> {
+        const result = await this.__fetch<
+            GithubStats<{ user: { contributionsCollection: { contributionCalendar: IContributionsCalender } } }>
+        >(Contributions(), { username })
+        if (!result.data?.user?.contributionsCollection?.contributionCalendar) throw new Error(`Invalid Input`)
+        return result.data.user.contributionsCollection?.contributionCalendar
     }
 }
