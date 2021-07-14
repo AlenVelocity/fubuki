@@ -1,5 +1,5 @@
 export default (): string => `query userInfo($login: String!) {
-        user(login: "alensaito1") {
+        user(login: $login) {
           avatarUrl
           name
           login
