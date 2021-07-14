@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 import { GithubClient } from '../GithubClient'
-import { IUserStats } from '../query/User'
+import { IUser } from '../query/User'
 const requiredMetadataKey = Symbol('required')
 
 type Filter<T> = {
@@ -21,8 +21,8 @@ export const Validate = () => {
         propertyName: keyof Filter<GithubClient>,
         descriptor: TypedPropertyDescriptor<typeof target[typeof propertyName]>
     ): void => {
-        const method = descriptor.value as unknown as () => IUserStats
-        ;(descriptor.value as unknown as () => Promise<IUserStats>) = async function (
+        const method = descriptor.value as unknown as () => IUser
+        ;(descriptor.value as unknown as () => Promise<IUser>) = async function (
             ...args: Parameters<typeof target[typeof propertyName]>
         ) {
             const requiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyName)
