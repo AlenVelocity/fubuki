@@ -80,4 +80,18 @@ export class GithubClient {
         if (!result.data?.user?.contributionsCollection?.contributionCalendar) throw new Error(`Invalid Input`)
         return result.data.user.contributionsCollection?.contributionCalendar
     }
+
+    /**
+     * Fetches the Github GQL API Using your query
+     * @param {string}query - gql query to fetch
+     * @param {Object<{ [key: string]: string }>}variables - variables to pass to the query
+     * @returns {Promise<{ data: any, errors: any }>} - Promise of the result
+     */
+    @Validate()
+    async customQuery<T>(
+        @Required() query: string,
+        @Required() variables: { [key: string]: string }
+    ): Promise<{ data: T | null; errors: unknown | null }> {
+        return await this.__fetch(query, variables)
+    }
 }
