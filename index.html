@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>fubuki - v1.1.0</title>
+	<meta name="description" content="Documentation for fubuki - v1.1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">fubuki - v1.1.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>fubuki - v1.1.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#fubuki" id="fubuki" style="color: inherit; text-decoration: none;">
+					<h1>Fubuki</h1>
+				</a>
+				<img src="https://images.squarespace-cdn.com/content/v1/5ac8997aaa49a16d3b6dfe3a/1619053326745-M9PXMA5534IJJJXGF67B/Shirakami+Fubuki.png?format=200" align=right />
+				<a href="#github-graphql-api-client" id="github-graphql-api-client" style="color: inherit; text-decoration: none;">
+					<h2>Github GraphQL API Client</h2>
+				</a>
+				<p><a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="NodeJs">
+				<a href="https://www.npmjs.com/package/fubuki"><img src="https://nodei.co/npm/fubuki.png" alt="Fubuki"></a></p>
+				<a href="#this-package-refers-the-following" id="this-package-refers-the-following" style="color: inherit; text-decoration: none;">
+					<h3>This package refers the following:</h3>
+				</a>
+				<a href="#--github-graphql-api" id="--github-graphql-api" style="color: inherit; text-decoration: none;">
+					<h3>- <a href="https://developer.github.com/v4/">Github GraphQL API</a></h3>
+				</a>
+				<a href="#generate-github-acess-token-here" id="generate-github-acess-token-here" style="color: inherit; text-decoration: none;">
+					<h3>Generate Github Acess Token <a href="https://github.com/settings/tokens">Here</a></h3>
+				</a>
+				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+					<h2>Install</h2>
+				</a>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> --</span><span style="color: #001080">save</span><span style="color: #000000"> </span><span style="color: #001080">fubuki</span>
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">GithubClient</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;fubuki&#039;</span><span style="color: #000000">)</span>
+<span style="color: #008000">// import { GithubClient } from &#039;fubuki&#039;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">fubuki</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">GithubClient</span><span style="color: #000000">(</span><span style="color: #001080">github_accessToken</span><span style="color: #000000">)</span>
+</code></pre>
+				<a href="#get-a-user" id="get-a-user" style="color: inherit; text-decoration: none;">
+					<h3>Get a user</h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">data</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">fubuki</span><span style="color: #000000">.</span><span style="color: #795E26">getUser</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;alensaito1&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">data</span><span style="color: #000000">) </span><span style="color: #008000">/* {</span>
+<span style="color: #008000">    name: &#039;Alen Yohannan&#039;</span>
+<span style="color: #008000">    login: &#039;alensaito1&#039;</span>
+<span style="color: #008000">    pullRequests: {</span>
+<span style="color: #008000">        totalCount: 1400</span>
+<span style="color: #008000">    }...*/</span>
+</code></pre>
+				<a href="#get-a-repository" id="get-a-repository" style="color: inherit; text-decoration: none;">
+					<h3>Get a Repository</h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">data</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">fubuki</span><span style="color: #000000">.</span><span style="color: #795E26">getRepository</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">owner:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;alensaito1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">repository:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;fubuki&#039;</span>
+<span style="color: #000000">})</span>
+
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">data</span><span style="color: #000000">) </span><span style="color: #008000">/* {</span>
+<span style="color: #008000">    description: &#039;Github GQL API Client&#039;</span>
+<span style="color: #008000">    forks: {</span>
+<span style="color: #008000">         totalCount: 0</span>
+<span style="color: #008000">    }...*/</span>
+</code></pre>
+				<a href="#get-the-contributions-calender-of-a-user" id="get-the-contributions-calender-of-a-user" style="color: inherit; text-decoration: none;">
+					<h3>Get the contributions calender of a user</h3>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">data</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">fubuki</span><span style="color: #000000">.</span><span style="color: #795E26">getContributionsCalendar</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;alensaito1&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">data</span><span style="color: #000000">) </span><span style="color: #008000">/*{</span>
+<span style="color: #008000">    weeks: {</span>
+<span style="color: #008000">        [contributionDays: [{</span>
+<span style="color: #008000">            color: &#039;#ebedf0&#039;</span>
+<span style="color: #008000">            contributionCount: 9</span>
+<span style="color: #008000">            contributionLevel:&#039;FIRST_QUARTILE&#039;</span>
+<span style="color: #008000">            date: &#039;2021-07-13&#039;</span>
+<span style="color: #008000">        }...]</span>
+<span style="color: #008000">    }...]</span>
+<span style="color: #008000">}*/</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/GithubClient.html" class="tsd-kind-icon">Github<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/GithubStats.html" class="tsd-kind-icon">Github<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/IContributionsCalender.html" class="tsd-kind-icon">IContributions<wbr>Calender</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/IRepository.html" class="tsd-kind-icon">IRepository</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/IUser.html" class="tsd-kind-icon">IUser</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
