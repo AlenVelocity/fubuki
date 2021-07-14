@@ -2,7 +2,7 @@ import { Required, Validate } from './Decorators/ParameterValidator'
 import TokenValidator from './Decorators/TokenValidator'
 import Contributions, { IContributionsCalender } from './query/ContributionCalender'
 import Repository, { IRepository } from './query/Repository'
-import User, { IUserStats } from './query/User'
+import User, { IUser } from './query/User'
 import fetcher from './Utils/fetcher'
 
 export interface GithubStats<IStats> {
@@ -47,8 +47,8 @@ export class GithubClient {
      * @returns {Promise<IUserStats>} - User stats
      */
     @Validate()
-    async getUser(@Required() username: string): Promise<IUserStats> {
-        const result = await this.__fetch<GithubStats<{ user: IUserStats }>>(User(), { login: username })
+    async getUser(@Required() username: string): Promise<IUser> {
+        const result = await this.__fetch<GithubStats<{ user: IUser }>>(User(), { login: username })
         if (!result.data.user) throw new Error(`Invalid Username: ${username}`)
         return result.data.user
     }

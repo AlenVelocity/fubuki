@@ -1,59 +1,128 @@
 export default (): string => `query userInfo($login: String!) {
-        user(login: $login) {
-            name
-            login
-            pullRequests(first: 1) {
-                totalCount
-            }
-            issues(first: 1) {
-                totalCount
-            }   
-            followers {
-                totalCount
-            }
-            contributionsCollection {
-                totalCommitContributions
-                restrictedContributionsCount
-            }
-            repositoriesContributedTo(first: 1, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
-                totalCount
-            }
-            repositories(first: 100, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {
-                totalCount
+        user(login: "alensaito1") {
+          avatarUrl
+          name
+          login
+          location
+          bio
+          isDeveloperProgramMember
+          isHireable
+          issues {
+            totalCount
+          }
+          repositories(first: 100) {
+            totalCount
             nodes {
-                stargazers {
-                    totalCount
-                }
+              isFork
+              name
+              isLocked
+              isTemplate
+              issues {
+                totalCount
+              }
             }
+          }
+          contributionsCollection {
+            firstIssueContribution {
+              ... on CreatedIssueContribution {
+                __typename
+                url
+              }
+            }
+            firstPullRequestContribution {
+              ... on CreatedPullRequestContribution {
+                __typename
+                url
+              }
+            }
+          }
+          followers {
+            totalCount
+          }
+          following {
+            totalCount
+          }
+          gists {
+            totalCount
+          }
+          projects(first: 100) {
+            totalCount
+            nodes {
+              name
+              url
+            }
+          }
         }
-    }
-}`
+      }
+      `
 
-export interface IUserStats {
+export interface IUser {
+    avatarUrl: string
     name: string
     login: string
-    pullRequests: {
-        totalCount: number
-    }
-    issues: {
-        totalCount: number
-    }
-    followers: {
-        totalCount: number
-    }
-    contributionsCollection: {
-        totalCommitContributions: number
-        restrictedContributionsCount: number
-    }
-    repositoriesContributedTo: {
-        totalCount: number
-    }
-    repositories: {
-        totalCount: number
-        nodes: {
-            stargazers: {
-                totalCount: number
-            }
-        }
-    }
+    location: string
+    bio: string
+    isDeveloperProgramMember: boolean
+    isHireable: boolean
+    issues: Issues
+    repositories: Repositories
+    contributionsCollection: ContributionsCollection
+    followers: Followers
+    following: Following
+    gists: Gists
+    projects: Projects
+}
+
+interface Issues {
+    totalCount: number
+}
+
+interface Node {
+    isFork: boolean
+    name: string
+    isLocked: boolean
+    isTemplate: boolean
+    issues: Issues
+}
+
+interface Repositories {
+    totalCount: number
+    nodes: Node[]
+}
+
+interface FirstIssueContribution {
+    __typename: string
+    url: string
+}
+
+interface FirstPullRequestContribution {
+    __typename: string
+    url: string
+}
+
+interface ContributionsCollection {
+    firstIssueContribution: FirstIssueContribution
+    firstPullRequestContribution: FirstPullRequestContribution
+}
+
+interface Followers {
+    totalCount: number
+}
+
+interface Following {
+    totalCount: number
+}
+
+interface Gists {
+    totalCount: number
+}
+
+interface Node2 {
+    name: string
+    url: string
+}
+
+interface Projects {
+    totalCount: number
+    nodes: Node2[]
 }
